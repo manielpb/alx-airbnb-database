@@ -20,19 +20,23 @@ Analysis of each table
    
   * Property
       1. All attributes in the property table, except for host_id depend only on property_id
-      2. host_id -> user(user_id)
+      2. host_id -> user(user_id) and does not introduce transistive dependency
       3. No transistive dependency
          
   * Booking
       1. All non-key attributes depends on booking_id
+      2. No transistive dependency
 
   * Payment
       1. All non-key attributes depends on payment_id
+      2. No transistive dependency
 
   * Review
       1. All non-key attributes depends on review_id
+      2. No transistive dependency
 
   * Message
       1. All non-key attributes depends on message_id
+      2. No transistive dependency
     
 Conclusion: Table is in a 3NF
