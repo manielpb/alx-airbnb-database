@@ -34,16 +34,16 @@
 
 
 
-EXPLAIN
+EXPLAIN ANALYZE
 SELECT 
-  bokkings.booking_id, 
+  bookings.booking_id, 
   users.first_name, 
   users.last_name, 
   properties.name, 
   bookings.start_date, 
   bookings.status
 FROM bookings 
-INNER JOIN users ON bookings.user_id = users.user_id
-INNER JOIN properties  ON bookings.property_id = properties.property_id
+JOIN users  ON bookings.user_id = users.user_id
+JOIN properties  ON bookings.property_id = properties.property_id
 WHERE bookings.status = 'Confirmed'
 ORDER BY bookings.start_date DESC;
