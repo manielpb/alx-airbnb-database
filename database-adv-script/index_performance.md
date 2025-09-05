@@ -30,3 +30,20 @@
    - name
      Might appear in search (WHERE name LIKE ...).
    - High-usage: property_id, location, (name for searches).
+
+
+
+
+EXPLAIN
+SELECT 
+  bokkings.booking_id, 
+  users.first_name, 
+  users.last_name, 
+  properties.name, 
+  bookings.start_date, 
+  bookings.status
+FROM bookings 
+INNER JOIN users ON bookings.user_id = users.user_id
+INNER JOIN properties  ON bookings.property_id = properties.property_id
+WHERE bookings.status = 'Confirmed'
+ORDER BY bookings.start_date DESC;
