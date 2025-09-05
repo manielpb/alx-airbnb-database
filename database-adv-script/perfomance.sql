@@ -1,3 +1,5 @@
+-- Query to retrieve bookings with user, property, and payment details
+-- Includes WHERE and AND for filtering performance
 SELECT 
     b.booking_id,
     b.start_date,
@@ -18,4 +20,6 @@ SELECT
 FROM bookings b
 INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN properties p ON b.property_id = p.property_id
-LEFT JOIN payments pay ON b.booking_id = pay.booking_id;
+LEFT JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.status = 'Confirmed'
+  AND p.location = 'Miami';
